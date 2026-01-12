@@ -1,33 +1,25 @@
 {
-  "log": {
-    "loglevel": "warning"
-  },
-  "inbounds": [
-    {
-      "port": 8080,
-      "listen": "0.0.0.0",
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "8c2bef40-3d5c-4a7e-b1f2-9c8d7e6f5a4b",
-            "flow": "",
-            "level": 0
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/"
+  "inbounds": [{
+    "port": 8080,
+    "protocol": "vless",
+    "settings": {
+      "clients": [{
+        "id": "8c2bef40-3d5c-4a7e-b1f2-9c8d7e6f5a4b",
+        "flow": "xtls-rprx-vision"
+      }]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "security": "tls",
+      "wsSettings": {
+        "path": "/im",
+        "headers": {
+          "Host": "vk.com"
         }
       }
     }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    }
-  ]
+  }],
+  "outbounds": [{
+    "protocol": "freedom"
+  }]
 }
